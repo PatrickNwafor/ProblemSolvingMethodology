@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProblemSolvingMethodology
+namespace ProblemSolvingMethodology.Examples
 {
     class Card
     {
@@ -13,7 +13,7 @@ namespace ProblemSolvingMethodology
 
         public override string ToString()
         {
-            string card = "(" + this.Face + " " + this.Suit + ")";
+            string card = "(" + Face + " " + Suit + ")";
             return card;
         }
     }

@@ -1,4 +1,4 @@
-﻿namespace ProblemSolvingMethodology
+﻿namespace ProblemSolvingMethodology.Examples
 {
     public class Sort10000Numbers
     {

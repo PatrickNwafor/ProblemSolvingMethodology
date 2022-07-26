@@ -10,6 +10,7 @@ namespace ProblemSolvingMethodology.Exercise1
     {
         public static void GetVerticalLineTest()
         {
+            Console.WriteLine("Get Vertical Line Test:");
             List<Point2D> points = new List<Point2D>();
             points.Add(new Point2D(-2, 1));
             points.Add(new Point2D(0, 1));
@@ -19,11 +20,19 @@ namespace ProblemSolvingMethodology.Exercise1
 
             LinesOnPlane lines = new LinesOnPlane(points);
             Dictionary<int, List<int>> dictionary = lines.VerticalLine();
-            PrintHasMapPoints(dictionary);
+            if(dictionary.Count > 0)
+            {
+                PrintHasMapPoints(dictionary);
+            }
+            else
+            {
+                Console.WriteLine("No Vertical Line found that has equal number of points at both side of the line");
+            }
         }
 
         public static void GetHorizontalLineTest()
         {
+            Console.WriteLine("Get Horizontal Line Test:");
             List<Point2D> points = new List<Point2D>();
             points.Add(new Point2D(-2, 1));
             points.Add(new Point2D(0, 3));
@@ -33,7 +42,43 @@ namespace ProblemSolvingMethodology.Exercise1
 
             LinesOnPlane lines = new LinesOnPlane(points);
             Dictionary<int, List<int>> dictionary = lines.HorizontalLine();
-            PrintHasMapPoints(dictionary);
+            if (dictionary.Count > 0)
+            {
+                PrintHasMapPoints(dictionary);
+            }
+            else
+            {
+                Console.WriteLine("No Horizontal Line found that has equal number of points at both side of the line");
+            }
+        }
+
+        public static void PerformanceTest()
+        {
+            Console.WriteLine("Performance test with 100,000 points");
+            DateTime startTime = DateTime.Now;
+            Random random = new Random();
+            List<Point2D> points = new List<Point2D>();
+
+            for (int i = 0; i < 100000; i++)
+            {
+                int x = random.Next(-20, 20);
+                int y = random.Next(-20, 20);
+                points.Add(new Point2D(x, y));
+            }
+
+            LinesOnPlane lines = new LinesOnPlane(points);
+            var dictionary = lines.VerticalLine();
+            DateTime endTime = DateTime.Now;
+            Console.WriteLine("Execution Time is: {0}", endTime - startTime);
+
+            if (dictionary.Count > 0)
+            {
+                PrintHasMapPoints(dictionary);
+            }
+            else
+            {
+                Console.WriteLine("No Vertical Line found that has equal number of points at both side of the line");
+            }
         }
 
         private static void PrintHasMapPoints(Dictionary<int, List<int>> points)

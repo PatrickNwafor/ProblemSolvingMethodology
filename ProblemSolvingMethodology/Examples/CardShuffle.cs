@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProblemSolvingMethodology
+namespace ProblemSolvingMethodology.Examples
 {
     class CardShuffle
     {
@@ -54,7 +54,7 @@ namespace ProblemSolvingMethodology
 
         static void ShuffleCards(List<Card> cards)
         {
-            if(cards.Count > 1)
+            if (cards.Count > 1)
             {
                 for (int i = 0; i < cards.Count; i++)
                 {
@@ -83,8 +83,8 @@ namespace ProblemSolvingMethodology
         static void TestShuffle52000Cards()
         {
             List<Card> cards = new List<Card>();
-            string[] allFaces = new string[] {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
-            Suit[] allSuits = new Suit[] { Suit.CLUB, Suit.DIAMOND, Suit.HEART, Suit.SPADE};
+            string[] allFaces = new string[] { "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A" };
+            Suit[] allSuits = new Suit[] { Suit.CLUB, Suit.DIAMOND, Suit.HEART, Suit.SPADE };
             for (int i = 0; i < 1000; i++)
             {
                 foreach (string face in allFaces)
